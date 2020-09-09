@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- app:title="title" 标题的 String 值-->
+    <!-- app:summary="summary" 摘要的 String 值-->
+    <!-- app:icon="@drawable/ic_camera" 图标的 Drawable-->
+    <!-- app:key="key" 表示用于保留关联 Preference 值的键。使您能够在运行时进一步自定义 Preference。您应为层次结构中的每个 Preference 设置键 -->
+    <!-- app:enabled="false"指示用户能否与 Preference 互动的布尔值。当此值为 false 时，Preference 会灰显，用户无法与其互动。默认值为 true。-->
+    <!-- app:selectable="false" 用户能否与 Preference 互动的布尔值。默认值为 true -->
+    <!-- app:isPreferenceVisible="false" 指示 Preference 类别或 类别是否可见的布尔值。这相当于调用 setVisible()-->
+    <!-- app:defaultValue="true" 如果没有找到此 Preference 的其他保留值，则设置并保留此值。值类型取决于关联的 Preference -->
+    <!-- app:dependency="parent" 表示 SwitchPreferenceCompat 的键，它会控制此 Preference 的状态。当对应开关关闭时，此 Preference 停用，且无法修改 -->
+
+    <!-- CheckBoxPreference -->
+    <PreferenceCategory
+        app:key="CheckBoxPreference_category"
+        app:title="CheckBoxPreference">
+        <CheckBoxPreference
+            app:enabled="true"
+            app:icon="@mipmap/ic_launcher"
+            app:isPreferenceVisible="true"
+            app:key="CheckBoxPreference"
+            app:selectable="true"
+            app:summary="summary"
+            app:title="CheckBoxPreference" />
+    </PreferenceCategory>
+
+    <!-- DropDownPreference -->
+    <PreferenceCategory
+        app:key="DropDownPreference_category"
+        app:title="DropDownPreference">
+        <!-- entries，entryValues must be string-array -->
+        <DropDownPreference
+            android:entries="@array/DropDownPreference"
+            android:entryValues="@array/DropDownPreference"
+            app:key="DropDownPreference"
+            app:title="DropDownPreference"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <!-- EditTextPreference -->
+    <PreferenceCategory
+        app:key="EditTextPreference_category"
+        app:title="EditTextPreference">
+
+        <EditTextPreference
+            app:key="EditTextPreference_visible"
+            app:title="EditTextPreferenceVisible" />
+
+        <EditTextPreference
+            app:isPreferenceVisible="false"
+            app:key="signature_gone"
+            app:title="EditTextPreferenceGone" />
+
+    </PreferenceCategory>
+
+    <!-- ListPreference-->
+    <ListPreference
+        app:entries="@array/DropDownPreference"
+        app:entryValues="@array/DropDownPreference"
+        app:key="ListPreference"
+        app:title="ListPreference" />
+
+    <!-- MultiSelectListPreference-->
+    <MultiSelectListPreference
+        android:entryValues="@array/DropDownPreference"
+        app:entries="@array/DropDownPreference"
+        app:key="MultiSelectListPreference"
+        app:title="MultiSelectListPreference" />
+
+    <!-- SeekBarPreference-->
+    <SeekBarPreference
+        app:key="SeekBarPreference"
+        app:title="SeekBarPreference" />
 
     <!-- SwitchPreferenceCompat -->
     <PreferenceCategory
@@ -10,7 +81,6 @@
             app:key="SwitchPreferenceCompat"
             app:title="SwitchPreferenceCompat" />
     </PreferenceCategory>
-
 
     <!-- Preference -->
     <PreferenceCategory
@@ -43,23 +113,5 @@
         </Preference>
 
     </PreferenceCategory>
-
-
-    <!-- EditTextPreference -->
-    <PreferenceCategory
-        app:key="EditTextPreference_category"
-        app:title="EditTextPreference">
-
-        <EditTextPreference
-            app:key="EditTextPreference_visible"
-            app:title="EditTextPreferenceVisible" />
-
-        <EditTextPreference
-            app:isPreferenceVisible="false"
-            app:key="signature_gone"
-            app:title="EditTextPreferenceGone" />
-
-    </PreferenceCategory>
-
 
 </PreferenceScreen>
